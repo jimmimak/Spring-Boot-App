@@ -1,0 +1,72 @@
+CREATE TABLE AppUser (
+    Username VARCHAR(255) PRIMARY KEY,
+    Password VARCHAR(255) NOT NULL,
+    Fullname VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Role (
+    Roleid INT AUTO_INCREMENT PRIMARY KEY,
+    Rolename VARCHAR(50) NOT NULL UNIQUE CHECK (Rolename IN ('USER', 'ADMIN', 'AUTHOR', 'PC_CHAIR', 'PC_MEMBER'))
+);
+
+CREATE TABLE UserRole (
+    Username VARCHAR(255),
+    Roleid INT,
+    FOREIGN KEY (Username) REFERENCES AppUser(Username),
+    FOREIGN KEY (Roleid) REFERENCES Role(Roleid),
+    PRIMARY KEY (Username, Roleid)
+);
+
+CREATE TABLE Conference (
+    Name VARCHAR(255) PRIMARY KEY,
+    Description TEXT NOT NULL,
+    Creationdate DATE NOT NULL,
+    State VARCHAR(50) CHECK (State IN ('CREATED', 'SUBMISSION', 'ASSIGNMENT', 'REVIEW', 'DECISION', 'FINAL_SUBMISSION', 'FINAL'))
+);
+
+CREATE TABLE ConferenceUser (
+    Name VARCHAR(255),
+    Username VARCHAR(255),
+    Roleid INT,
+    FOREIGN KEY (Name) REFERENCES Conference(Name),
+    FOREIGN KEY (Username) REFERENCES AppUser(Username),
+    FOREIGN KEY (Roleid) REFERENCES Role(Roleid),
+    PRIMARY KEY (Name, Username, Roleid)
+);
+
+CREATE TABLE Paper (
+    Title VARCHAR(255) PRIMARY KEY,
+    Name VARCHAR(255),
+    Abstract TEXT NOT NULL,
+    Content TEXT,
+    Creationdate DATE NOT NULL,
+    State VARCHAR(50) CHECK (State IN ('CREATED', 'SUBMITTED', 'REVIEWED', 'REJECTED', 'APPROVED', 'ACCEPTED')),
+    FOREIGN KEY (Name) REFERENCES Conference(Name)
+);
+
+CREATE TABLE PaperAuthor (
+    Title VARCHAR(255),
+    Username VARCHAR(255),
+    FOREIGN KEY (Title) REFERENCES Paper(Title),
+    FOREIGN KEY (Username) REFERENCES AppUser(Username),
+    PRIMARY KEY (Title, Username)
+);
+
+CREATE TABLE Review (
+    Reviewid INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(255),
+    Username VARCHAR(255),
+    Score INT CHECK (Score >= 0 AND Score <= 100),
+    Comments TEXT,
+    Reviewdate DATE NOT NULL,
+    FOREIGN KEY (Title) REFERENCES Paper(Title),
+    FOREIGN KEY (Username) REFERENCES AppUser(Username)
+);
+
+CREATE TABLE AuthenticationToken (
+    Tokenid INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(255),
+    Tokenvalue VARCHAR(255) NOT NULL UNIQUE,
+    Expirydate DATE NOT NULL,
+    FOREIGN KEY (Username) REFERENCES AppUser(Username)
+);

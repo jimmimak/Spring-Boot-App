@@ -1,0 +1,87 @@
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user1', 'aA1!1234', 'Alice Smith');
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user2', 'sS2@1234', 'Bob Johnson');
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user3', 'dD3!1234', 'Carol Williams');
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user4', 'qQ4@1234', 'David Brown');
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user5', 'wW5!1234', 'Eva Davis');
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user6', 'eE6@1234', 'Frank Miller');
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user7', 'rR7!1234', 'Grace Wilson');
+INSERT INTO AppUser (Username, Password, Fullname) VALUES ('user8', 'tT8@1234', 'Henry Moore');
+
+
+
+
+
+INSERT INTO Role (Rolename) VALUES ('USER');
+INSERT INTO Role (Rolename) VALUES ('ADMIN');
+INSERT INTO Role (Rolename) VALUES ('AUTHOR');
+INSERT INTO Role (Rolename) VALUES ('PC_CHAIR');
+INSERT INTO Role (Rolename) VALUES ('PC_MEMBER');
+
+
+
+
+
+INSERT INTO Conference (Name, Description, CreationDate, State) VALUES ('TechCon 2024', 'A conference focusing on emerging technologies.', '2023-12-20', 'FINAL');
+INSERT INTO Conference (Name, Description, CreationDate, State) VALUES ('InnovateX', 'Innovation and technology in the modern world.', '2023-11-10', 'DECISION');
+INSERT INTO Conference (Name, Description, CreationDate, State) VALUES ('Global AI Summit', 'An international conference on artificial intelligence.', '2023-11-30', 'FINAL');
+INSERT INTO Conference (Name, Description, CreationDate, State) VALUES ('EcoFuture 2024', 'Exploring sustainable technologies for the future.', '2023-12-22', 'DECISION');
+
+
+
+
+
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('TechCon 2024', 'user1', 3);
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('TechCon 2024', 'user2', 3);
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('TechCon 2024', 'user3', 3);
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('TechCon 2024', 'user4', 3);
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('InnovateX', 'user5', 3);
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('Global AI Summit', 'user6', 3);
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('Global AI Summit', 'user7', 3);
+INSERT INTO ConferenceUser (Name, Username, Roleid) VALUES ('EcoFuture 2024', 'user8', 3);
+
+
+
+
+
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('Emerging Tech in 2024', 'TechCon 2024', 'Exploring the latest in tech for 2024.', 'Content of the paper.', '2023-12-23', 'REJECTED');
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('Innovating the Future', 'InnovateX', 'Innovation trends in technology.', 'Content of the paper.', '2023-11-20', 'APPROVED');
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('AI and Global Trends', 'Global AI Summit', 'Impact of AI on global industries.', 'Content of the paper.', '2023-12-05', 'REJECTED');
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('Sustainable Tech', 'EcoFuture 2024', 'Sustainable technologies for the future.', 'Content of the paper.', '2024-01-10', 'APPROVED');
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('Next-Gen Virtual Reality', 'TechCon 2024', 'Exploring the future of virtual reality.', 'Content of the paper.', '2024-01-08', 'ACCEPTED');
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('Blockchain Innovations', 'TechCon 2024', 'The latest developments in blockchain technology.', 'Content of the paper.', '2024-01-08', 'ACCEPTED');
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('5G and IoT', 'TechCon 2024', 'Impact of 5G on IoT devices and networks.', 'Content of the paper.', '2024-01-10', 'ACCEPTED');
+INSERT INTO Paper (Title, Name, Abstract, Content, Creationdate, State) VALUES ('AI for Healthcare', 'Global AI Summit', 'Artificial intelligence in modern healthcare systems.', 'Content of the paper.', '2023-12-10', 'ACCEPTED');
+
+
+
+
+
+INSERT INTO PaperAuthor (Title, Username) VALUES ('Emerging Tech in 2024', 'user1');
+INSERT INTO PaperAuthor (Title, Username) VALUES ('Innovating the Future', 'user5');
+INSERT INTO PaperAuthor (Title, Username) VALUES ('AI and Global Trends', 'user6');
+INSERT INTO PaperAuthor (Title, Username) VALUES ('Sustainable Tech', 'user8');
+INSERT INTO PaperAuthor (Title, Username) VALUES ('Next-Gen Virtual Reality', 'user2');
+INSERT INTO PaperAuthor (Title, Username) VALUES ('Blockchain Innovations', 'user3');
+INSERT INTO PaperAuthor (Title, Username) VALUES ('5G and IoT', 'user4');
+INSERT INTO PaperAuthor (Title, Username) VALUES ('AI for Healthcare', 'user7');
+
+
+
+
+
+INSERT INTO UserRole (Username, Roleid) VALUES ('user1', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user1', 3);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user2', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user2', 3);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user3', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user3', 3);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user4', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user4', 3);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user5', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user5', 3);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user6', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user6', 3);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user7', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user7', 3);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user8', 1);
+INSERT INTO UserRole (Username, Roleid) VALUES ('user8', 3);
