@@ -7,5 +7,7 @@ Contents of this reposotory:
 2. The file "conferencemanagementsystemdb" is the exported file of the database used by the system.
 3. In the file "Εντολές CREATE για την δημιουργία της βάσης δεδομένων" you can find the CREATE commands used to create the database in case you want to create the databse from scratch yourself.
 4. In the file "Εντολές INSERT" you can find the INSERT commands used to fill the database in case you want to fill the database yourself after creating it.
+5. In the "Documentation" file you can find the documentation on how the web app works. The documentaion is written in Greek.
 
 Notes:
+Don't forget to go at the location demo/src/main/resources/application.properties and switch the information in this file with the information of your database.
