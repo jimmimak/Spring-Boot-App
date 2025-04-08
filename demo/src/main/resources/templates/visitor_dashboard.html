@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h2>Dashboard</h2>
+<div th:if="${isGuest}">
+    <h3>Welcome, Visitor!</h3>
+    <div>
+        <input type="text" placeholder="Search a Paper" id="searchPaper"/>
+        <button onclick="searchPaper()">Search Paper</button>
+    </div>
+    <div>
+        <!-- Conference Search Form -->
+        <form th:action="@{/searchConference}" method="get">
+            <input type="text" placeholder="Enter conference name or description" name="query" />
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </div>
+</div>
+
+<!-- Display Search Results -->
+<div th:if="${conferences}">
+    <h3>Search Results:</h3>
+    <ul class="no-bullets" th:each="conference : ${conferences}">
+        <li th:text="${conference.name} + ' - ' + ${conference.description}"></li>
+    </ul>
+</div>
+</body>
+</html>
